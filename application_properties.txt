@@ -1,0 +1,70 @@
+APPLICATION PROPERTIES
+======================
+
+Title: Financial Health
+Last Reload Time: 2023-06-07T13:44:30.282Z
+Thumbnail:
+{
+    "qUrl": "/api/v1/apps/b8151370-41bb-4daa-9342-4a8fb7e5ffec/media/files/Financial Analysis - App Thumbnail.png"
+}
+
+Saved In Product Version: 12.2850.0
+
+Additional Properties
+---------------------
+
+_resourcetype: app
+create:
+[
+    {
+        "canCreate": true,
+        "resource": "sheet"
+    },
+    {
+        "canCreate": true,
+        "resource": "bookmark"
+    },
+    {
+        "canCreate": true,
+        "resource": "snapshot"
+    },
+    {
+        "canCreate": true,
+        "resource": "story"
+    },
+    {
+        "canCreate": true,
+        "resource": "dimension"
+    },
+    {
+        "canCreate": true,
+        "resource": "measure"
+    },
+    {
+        "canCreate": true,
+        "resource": "masterobject"
+    },
+    {
+        "canCreate": true,
+        "resource": "sheetgroup"
+    },
+    {
+        "canCreate": true,
+        "resource": "variable"
+    }
+]
+
+createdDate: 2026-07-03T11:19:14.514Z
+encrypted: Yes
+hassectionaccess: No
+id: b8151370-41bb-4daa-9342-4a8fb7e5ffec
+modifiedDate: 2026-07-03T11:19:15.070Z
+originAppId: a4c13913-361c-425e-8019-2418196e7b88
+owner: auth0|a08D000000d9u66IAA
+ownerId: 67e51c6122ab2f9b5e701b31
+privileges: read, update, delete, reload, export, change_owner, change_space, export_reduced, source, evaluate, manage, publish_source
+publishTime: 2026-07-03T11:19:14.508Z
+published: No
+qUsage: ANALYTICS
+spaceId: 6a2ea62d58a46856e9700cc6
+
