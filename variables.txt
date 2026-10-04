@@ -1,0 +1,202 @@
+VARIABLES
+=========
+
+Name: vToday
+ID: d45971d0-99d9-456c-a20b-33459dc4b60f
+Script Created: Yes
+Definition:
+3/17/2023
+
+--------------------------------------------------------------------------------
+
+Name: vYTDYear
+ID: 6a81c1af-ae73-4ab3-9dd0-4b42fd0e20df
+Script Created: Yes
+Definition:
+=max([Fiscal Year])
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYTDMonth
+ID: f7f3b9cb-0cc9-4922-959f-b9a5ee3e54b2
+Script Created: Yes
+Definition:
+=Month(max(MonthYear))
+
+--------------------------------------------------------------------------------
+
+Name: vYTDMonth
+ID: 866aad61-fb13-4754-82a0-ccc4143a976f
+Script Created: Yes
+Definition:
+=if(GetSelectedCount(Month) = 0, Month(max(MonthYear)), concat(distinct Month, ','))
+
+--------------------------------------------------------------------------------
+
+Name: vBoldColor
+ID: f24ac4d4-4d88-4a4d-97f7-e99e2c22d3d7
+Script Created: Yes
+Definition:
+#000000
+
+--------------------------------------------------------------------------------
+
+Name: vPlainColor
+ID: 5c8f49f3-fe23-4ffa-9a40-05ea7538d175
+Script Created: Yes
+Definition:
+#9a9a9a
+
+--------------------------------------------------------------------------------
+
+Name: vStripes
+ID: 0e8bd041-463b-4617-a4c8-038d5ce994e7
+Script Created: Yes
+Definition:
+if(mod(rowno(),2)=0,'white','#F0F0F0')
+
+--------------------------------------------------------------------------------
+
+Name: vIndentRow
+ID: 7c9fe491-6fe3-48a9-82a7-5cff787f2241
+Script Created: Yes
+Definition:
+10
+
+--------------------------------------------------------------------------------
+
+Name: vIndentHeader
+ID: 923e008b-f392-451b-b2ad-e9937738c5bb
+Script Created: Yes
+Definition:
+25
+
+--------------------------------------------------------------------------------
+
+Name: vExpand
+ID: 44801850-1730-4456-9d4d-0c718741d3a4
+Script Created: No
+Definition:
+1
+
+--------------------------------------------------------------------------------
+
+Name: vYTDMOnth
+ID: 71919f00-6db5-45d7-8f3f-aa936530f001
+Script Created: No
+Definition:
+=if(GetSelectedCount(Month) = 0, Month(max(MonthYear)), concat(distinct Month, ','))
+
+--------------------------------------------------------------------------------
+
+Name: vPlainTrans
+ID: b20f3aee-0638-4bc3-b581-f485df119b44
+Script Created: No
+Definition:
+0
+
+--------------------------------------------------------------------------------
+
+Name: vFYQTR
+ID: 9fa67c12-273a-4c8a-89c7-5db7ffbd64bc
+Script Created: No
+Definition:
+=If(Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))<=3, 'FY' & right(Year(date(vToday, 'MM/DD/YYYY')),2) & '-Q1',
+If(Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))<=3, 'FY' & right(Year(date(vToday, 'MM/DD/YYYY')),2) & '-Q1',
+If(Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))>3 AND Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))<=6, 'FY' & right(Year(date(vToday, 'MM/DD/YYYY')),2) & '-Q2',
+If(Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))>6 AND Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))<=9, 'FY' & right(Year(date(vToday, 'MM/DD/YYYY')),2) & '-Q3',
+If(Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))>9 AND Trim(subfield(date(vToday, 'MM/DD/YYYY'),'/',1))<=12, 'FY' & right(Year(date(vToday, 'MM/DD/YYYY')),2)) & '-Q4'
+    ))))
+
+--------------------------------------------------------------------------------
+
+Name: vViewBy
+ID: 3d85b85f-5cab-4d39-85a7-6949730bfa0c
+Script Created: No
+Definition:
+If(GetFieldSelections(ViewBy)='Month', 1,
+If(GetFieldSelections(ViewBy)='Quarter', 2,
+If(GetFieldSelections(ViewBy)='Year', 3)))
+
+--------------------------------------------------------------------------------
+
+Name: vCFYTDYR
+ID: 0fdb6874-2ebe-4df6-8b56-f26b2336eaa8
+Script Created: No
+Definition:
+=Max(BalanceSheetYr)
+
+--------------------------------------------------------------------------------
+
+Name: vCFYTDMonth
+ID: ada8ec96-d0d5-41f2-97e6-6dc27c512b22
+Script Created: No
+Definition:
+=Month(Max(Date))
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTR
+ID: b52b9918-869d-4862-9b8d-5f22cc4d2643
+Script Created: No
+Definition:
+=chr(39) & only({<[QtrYr Sort]={"$(=max([QtrYr Sort]))"} >} QtrYr) & chr(39)
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTRHeader
+ID: b04d1bcb-6e47-4c6a-9d1d-59c4070f70e9
+Script Created: No
+Definition:
+=only({<[QtrYr Sort]={"$(=max([QtrYr Sort]))"} >} QtrYr) & 'Q'
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTR-1
+ID: a5f4e0b1-a979-4b49-8369-351f97525bbc
+Script Created: No
+Definition:
+=chr(39) & only({<[QtrYr Sort]={"$(=max([QtrYr Sort])-1)"} >} QtrYr) & chr(39)
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTR-2
+ID: 11ca8c8a-05ac-41ce-9970-da7d030badfe
+Script Created: No
+Definition:
+=chr(39) & only({<[QtrYr Sort]={"$(=max([QtrYr Sort])-2)"} >} QtrYr) & chr(39)
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTR-3
+ID: 58664264-15a5-4b98-95a2-45f5a67772ef
+Script Created: No
+Definition:
+=chr(39) & only({<[QtrYr Sort]={"$(=max([QtrYr Sort])-3)"} >} QtrYr) & chr(39)
+
+--------------------------------------------------------------------------------
+
+Name: vMaxYRQTR-4
+ID: 6fcf321c-efc1-4d52-8553-be2bbaf4a6c9
+Script Created: No
+Definition:
+=chr(39) & only({<[QtrYr Sort]={"$(=max([QtrYr Sort])-4)"} >} QtrYr) & chr(39)
+
+--------------------------------------------------------------------------------
+
+Name: vRatioMaxYrMonth
+ID: f2de5dc1-ef03-4bbb-a61e-c7718a541dda
+Script Created: No
+Definition:
+=maxstring({<[MthYr Sort]={"$(=max([MthYr Sort]))"} >} [Ratio YrMonth])
+
+--------------------------------------------------------------------------------
+
+Name: vLYDate
+ID: 8b66e2a7-97b1-4351-b0cb-640ea2314f7f
+Script Created: No
+Definition:
+=Date(Max("Date")-365, 'M/D/YYYY')
+
+--------------------------------------------------------------------------------
+
