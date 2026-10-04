@@ -1,0 +1,773 @@
+MASTER MEASURES
+===============
+
+Title: Vertical Cost of Sales YTD
+Label: Vertical Cost of Sales YTD
+ID: 009aee72-4df7-4c98-b4a9-a49c8924c973
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Expenses FY21
+Label: Vertical Total Operating Expenses FY21
+ID: 118eec37-e0f7-48fd-a631-1ae4f434518b
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2021}, [Reporting Code]={8,9}>} [Amount])/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Net Profit Margin %
+Label: Net Profit Margin %
+ID: 1193920f-6549-4443-a013-a2b193840307
+Tags: 
+
+Expression:
+fabs(Sum({<[Account Type]={'Net Income'}>} [Balance Sheet Amt])/Sum({<[Account Type]={'Gross Sales'}>} [Balance Sheet Amt]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Debt to Equity Ratio
+Label: Debt to Equity Ratio
+ID: 1980b2c7-6b08-4c5b-b69a-f94ccc925087
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'} >}[Balance Sheet Amt]) 
+
+/
+
+(Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}>}[Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: Interest Coverage Ratio
+Label: Interest Coverage Ratio
+ID: 1d8e4c45-36c3-47e1-98f7-d32cea9a71da
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Interest Coverage Ratio'} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Income FY22
+Label: Vertical Total Operating Income FY22
+ID: 204cf86d-3d86-45d4-9dee-2b26129cd427
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4,5,6,7,8,9}>} [Amount])/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: P/E Ratio CM
+Label: P/E Ratio CM
+ID: 25d143e7-440c-4dc4-9c45-f5a0c6c9bbae
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'}, Date={"$(=max({$} Date))"}  >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: P/E Ratio +/-
+Label: P/E Ratio +/-
+ID: 31c9e9e0-e57f-4606-9af6-c752ef3f2e07
+Tags: 
+
+Expression:
+If(Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'}, Date={"$(=max({$} Date))"}  >} [Ratio Amount]) > Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'}, Date={"$(=vLYDate)"}  >} [Ratio Amount]), dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Total Operating Expense
+Label: Total Operating Expense
+ID: 39eb86c0-9cad-4896-9526-3d23d395ed03
+Tags: 
+
+Expression:
+fabs(Sum({<[Reporting Code]={8,9}>} [Amount]))
+
+--------------------------------------------------------------------------------
+
+Title: Vertical General & Admin Expense FY21
+Label: Vertical General & Admin Expense FY21
+ID: 3c23b04f-9ca7-42ce-80eb-32a8b9a428e6
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2021}, [Reporting Code]={9}>} [Amount])/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Expenses YTD
+Label: Vertical Total Operating Expenses YTD
+ID: 3f625e55-a9a3-44d0-8412-bda4d2cd584d
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={8,9}>} [Amount])/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical General & Admin Expense YTD
+Label: Vertical General & Admin Expense YTD
+ID: 405b1835-bf6b-4343-bcc5-c7c313b992ba
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={9}>} [Amount])/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Asset Turnover Ratio +/-
+Label: Asset Turnover Ratio +/-
+ID: 546410b9-04b2-4c8b-a809-6601c91c4245
+Tags: 
+
+Expression:
+If(Sum({<[Ratio Account Type]={'Asset Turnover Ratio'}, Date={"$(=max({$} Date))"} >} [Ratio Amount]) >
+Sum({<[Ratio Account Type]={'Asset Turnover Ratio'}, Date={"$(=vLYDate)"} >} [Ratio Amount]),
+dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Interest Coverage Ratio LY
+Label: Interest Coverage Ratio LY
+ID: 5522c3a5-5377-4fe0-acb3-087e24bf9f98
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Interest Coverage Ratio'}, Date={"$(=vLYDate)"} >} [Ratio Amount])
+
+
+//Date={"$(=vLYDate)"}
+
+--------------------------------------------------------------------------------
+
+Title: Vertical General & Admin Expense FY22
+Label: Vertical General & Admin Expense FY22
+ID: 571009d5-fda1-46c6-b311-9e5346a4a938
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2022}, [Reporting Code]={9}>} [Amount])/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Cost of Sales FY22
+Label: Vertical Cost of Sales FY22
+ID: 57590a11-bbf9-4fae-a714-2d085378ae33
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={2022}, [Reporting Code]={5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Income FY21
+Label: Vertical Total Operating Income FY21
+ID: 5aa051d1-bc1f-4bb8-81e2-439de205f62d
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4,5,6,7,8,9}>} [Amount])/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Asset Turnover Ratio
+Label: Asset Turnover Ratio
+ID: 62a60ebb-bf39-4427-b982-365e90fdc6e4
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Asset Turnover Ratio'} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Debt-to-Asset Ratio CM
+Label: Debt-to-Asset Ratio CM
+ID: 6931b9b8-1ea2-405f-950a-a9197774b0a0
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'},Date={"$(=max({$} Date))"}  >} [Balance Sheet Amt]) 
+
+/
+
+Sum({<[Account Category]={'Current Assets','Non-Current Assets'}, Date={"$(=max({$} Date))"}  >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Debt-to-Asset Ratio LY
+Label: Debt-to-Asset Ratio LY
+ID: 7154a68a-493f-4b5d-b4b9-3f2a248a1e65
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'}, Date={"$(=vLYDate)"}  >} [Balance Sheet Amt]) 
+
+/
+
+Sum({<[Account Category]={'Current Assets','Non-Current Assets'}, Date={"$(=vLYDate)"}  >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Interest Coverage Ratio +/-
+Label: Interest Coverage Ratio +/-
+ID: 726c4b4d-8fb6-4255-b361-8e9c6a05183c
+Tags: 
+
+Expression:
+If(Sum({<[Ratio Account Type]={'Interest Coverage Ratio'}, Date={"$(=max({$} Date))"} >} [Ratio Amount]) >
+
+Sum({<[Ratio Account Type]={'Interest Coverage Ratio'}, Date={"$(=vLYDate)"} >} [Ratio Amount]),
+dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Cash Flow
+Label: Cash Flow
+ID: 740592f4-64bd-4d4a-a2ca-08ced93dc858
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Cash Flow'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Gross Margin FY22
+Label: Vertical Gross Margin FY22
+ID: 7f7ab4ff-e068-4c7a-8b55-825b305938be
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4,5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Non-Current Assets
+Label: Non-Current Assets
+ID: 8a5df15f-2e05-43ba-8f00-ff86d5aa7f7c
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Non-Current Assets'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Current Ratio LY
+Label: Current Ratio LY
+ID: 8b31ea23-1fd1-4e41-b2c2-6c6ab1d0ce89
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Assets'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Free Cash Flow
+Label: Free Cash Flow
+ID: 91c801ac-af30-4fc7-897a-dd4a959416f1
+Tags: 
+
+Expression:
+Sum({<[CF Reporting Code]={1,2,3}  >} [Balance Sheet Amt])
+
+-
+
+Sum({<[CF Reporting Code]={4,5,6,7,8}  >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Net Income
+Label: Net Income
+ID: 955183db-3ddf-4b89-b66f-53ea93933204
+Tags: 
+
+Expression:
+fabs(Sum({<[Reporting Code]={1,2,3,4,5,6,7,8,9, 10}>} [Amount]))
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Selling Expenses FY22
+Label: Vertical Selling Expenses FY22
+ID: 9d6c20e8-db5c-4595-b486-ccd8c00af641
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2022}, [Reporting Code]={8}>} [Amount])/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Debt-to-Asset Ratio
+Label: Debt-to-Asset Ratio
+ID: CSMzB
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'} >} [Balance Sheet Amt]) 
+
+/
+
+Sum({<[Account Category]={'Current Assets','Non-Current Assets'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Order Count
+Label: Order Count
+ID: FDPCnjn
+Tags: 
+
+Expression:
+Count(Distinct [Order Number])
+
+--------------------------------------------------------------------------------
+
+Title: Return on Equity
+Label: Return on Equity
+ID: JSEFz
+Tags: 
+
+Expression:
+Sum({<[Account Type]={'Net Income'} >} [Balance Sheet Amt]) / 
+
+(Sum({<[Account Category]={'Current Assets','Non-Current Assets'} >} [Balance Sheet Amt]) -
+Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'} >} [Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: Current Ratio
+Label: Current Ratio
+ID: JvXNYgk
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Assets'} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Debt-to-Equity Ratio
+Label: Debt-to-Equity Ratio
+ID: XKyvLd
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'} >}[Balance Sheet Amt]) 
+
+/
+
+(Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'} >}[Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: Current Ratio YoY
+Label: Current Ratio YoY
+ID: ZPRs
+Tags: 
+
+Expression:
+((Sum({<[Account Category]={'Current Assets'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt])) - 
+
+(Sum({<[Account Category]={'Current Assets'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt])))
+
+/
+
+(Sum({<[Account Category]={'Current Assets'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: Interest Coverage Ratio CM
+Label: Interest Coverage Ratio CM
+ID: a260ad6c-6d85-4fe4-938e-8f8e04434e2c
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Interest Coverage Ratio'}, Date={"$(=max({$} Date))"} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Current Liabilities
+Label: Current Liabilities
+ID: a30939ec-4e2f-4466-8183-a2c041fd1671
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Net Sales
+Label: Net Sales
+ID: a431993c-ccf9-49d5-bcc2-f124d2ea7223
+Tags: 
+
+Expression:
+fabs(Sum({<[Reporting Code]={1,2,3,4}>} [Amount]))
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Income YTD
+Label: Vertical Total Operating Income YTD
+ID: aad3cb4c-defa-403a-8387-50153832a898
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4,5,6,7,8,9}>} [Amount])/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Debt to Equity Ratio +/-
+Label: Debt to Equity Ratio +/-
+ID: ab9bce63-a21c-49f8-b0b5-894ae7a7d7eb
+Tags: 
+
+Expression:
+If((Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt])/(Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt]))) >
+
+(Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt]) / (Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt]))),
+dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Gross Margin
+Label: Gross Margin
+ID: af10092c-0c63-441a-8ec9-dca40349dc7a
+Tags: 
+
+Expression:
+fabs(Sum({<[Reporting Code]={1,2,3,4,5,6,7}>} [Amount]))
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Gross Margin YTD
+Label: Vertical Gross Margin YTD
+ID: b0746ceb-c5cb-4df0-928c-2481d4dcd11b
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4,5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Asset Turnover Ratio LY
+Label: Asset Turnover Ratio LY
+ID: b2ab7c5e-dc68-4d85-ac19-0f7d21557a01
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Asset Turnover Ratio'}, Date={"$(=vLYDate)"} >} [Ratio Amount])
+
+
+//Date={"$(=vLYDate)"}
+
+--------------------------------------------------------------------------------
+
+Title: Current Ratio +/-
+Label: Current Ratio +/-
+ID: b3c6c87f-ae79-48a3-91aa-23c87845826c
+Tags: 
+
+Expression:
+If((Sum({<[Account Category]={'Current Assets'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt])) > 
+
+(Sum({<[Account Category]={'Current Assets'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=vLYDate)"} >} [Balance Sheet Amt])),
+dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Cost of Sales FY21
+Label: Vertical Cost of Sales FY21
+ID: bd2ee78c-ecc2-44b2-86c6-a629ed58d662
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={2021}, [Reporting Code]={5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Gross Profit Margin
+Label: Gross Profit Margin
+ID: bd95e23e-d58d-447b-9460-d13cd5021e60
+Tags: 
+
+Expression:
+(fabs((Sum({<[Account Type]={'Net Sales'}>} [Balance Sheet Amt])-Sum({<[Account Type]={'COGS'}>} [Balance Sheet Amt])))/Sum({<[Account Type]={'Net Sales'}>} [Balance Sheet Amt]))
+
+//))
+//If((fabs((Sum({<[Account Type]={'Net Income'}>} [Balance Sheet Amt])-Sum({<[Account Type]={'COGS'}>} [Balance Sheet Amt])))/Sum({<[Account Type]={'Net Income'}>} [Balance Sheet Amt]))>.80,.15+(1-rand()),
+//If((fabs((Sum({<[Account Type]={'Net Income'}>} [Balance Sheet Amt])-Sum({<[Account Type]={'COGS'}>} [Balance Sheet Amt])))/Sum({<[Account Type]={'Net Income'}>} [Balance Sheet Amt]))<.35,.15+(1-rand()),
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Net Sales FY21
+Label: Vertical Net Sales FY21
+ID: c35f4217-fda8-450e-ad38-758959625279
+Tags: 
+
+Expression:
+Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount])/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: P/E Ratio LY (1)
+Label: P/E Ratio LY (1)
+ID: cb715cdf-990a-40f4-9132-9cc86107c9c7
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'}, Date={"$(=vLYDate)"}  >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Net Sales FY22
+Label: Vertical Net Sales FY22
+ID: d3c87a48-6177-4d09-98c8-aade2e0fd896
+Tags: 
+
+Expression:
+Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount])/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Inventory Turnover Ratio
+Label: Inventory Turnover Ratio
+ID: df8e9c65-3d6c-4d16-a7a1-3e229f13aaf3
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Inventory Turnover Ratio'} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Debt to Equity Ratio LY
+Label: Debt to Equity Ratio LY
+ID: dfc06e90-1f67-41ed-86b7-0034070eb8e9
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt]) 
+
+/
+
+(Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=vLYDate)"} >}[Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: P/E Ratio
+Label: P/E Ratio
+ID: dpMmy
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Current Ratio CM
+Label: Current Ratio CM
+ID: e1471894-b228-4676-80c4-6ba5777c3ada
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Assets'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt]) / 
+Sum({<[Account Category]={'Current Liabilities'}, Date={"$(=max({$} Date))"} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Selling Expenses YTD
+Label: Vertical Selling Expenses YTD
+ID: e17dfee9-977b-49ed-964e-e454c015960d
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={8}>} [Amount])/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Debt-to-Asset Ratio +/-
+Label: Debt-to-Asset Ratio +/-
+ID: e672ce0b-ba48-461f-ac0a-f1ffbfa01615
+Tags: 
+
+Expression:
+If(Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'},Date={"$(=max({$} Date))"}  >} [Balance Sheet Amt])/Sum({<[Account Category]={'Current Assets','Non-Current Assets'}, Date={"$(=max({$} Date))"}  >} [Balance Sheet Amt]) >
+
+Sum({<[Account Category]={'Current Liabilities','Non-Current Liabilities'}, Date={"$(=vLYDate)"}  >} [Balance Sheet Amt])/Sum({<[Account Category]={'Current Assets','Non-Current Assets'}, Date={"$(=vLYDate)"}  >} [Balance Sheet Amt])
+
+, dual('▲',1),dual('▼',-1))
+
+--------------------------------------------------------------------------------
+
+Title: Current Assets
+Label: Current Assets
+ID: ePhUmdW
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Assets'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Selling Expenses FY21
+Label: Vertical Selling Expenses FY21
+ID: ead2c22a-cc82-4e3c-b6f2-89603d247000
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2021}, [Reporting Code]={8}>} [Amount])/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Debt to Equity Ratio CM
+Label: Debt to Equity Ratio CM
+ID: eb01afbc-3b95-4edb-a817-4d85cfcf2c32
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt]) 
+
+/
+
+(Sum({<[Account Category]={'Current Assets', 'Non-Current Assets'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt])-Sum({<[Account Category]={'Current Liabilities', 'Non-Current Liabilities'}, Date={"$(=max({$} Date))"} >}[Balance Sheet Amt]))
+
+--------------------------------------------------------------------------------
+
+Title: P/E Ratio LY
+Label: P/E Ratio LY
+ID: ecc1b73a-1305-45b8-a578-18efe4aab41a
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Price-to-Earnings Ratio'}, Date={"$(=vLYDate)"}  >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Total Operating Expenses FY22
+Label: Vertical Total Operating Expenses FY22
+ID: f455a5d7-0562-4e37-bc2c-5be93cbb3ef7
+Tags: 
+
+Expression:
+FABS(Sum({<[Fiscal Year]={2022}, [Reporting Code]={8,9}>} [Amount])/Sum({<[Fiscal Year]={2022}, [Reporting Code]={1,2,3,4}>} [Amount]))
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Gross Margin FY21
+Label: Vertical Gross Margin FY21
+ID: f78a7944-f9d7-4fbe-97b4-f103229933a2
+Tags: 
+
+Expression:
+fabs(Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4,5,6,7}>} [Amount]))/Sum({<[Fiscal Year]={2021}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Non-Current Liabilities
+Label: Non-Current Liabilities
+ID: fc076c8c-3056-4dc4-9c8c-510a6f01d05e
+Tags: 
+
+Expression:
+Sum({<[Account Category]={'Non-Current Liabilities'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Sales$
+Label: Sales$
+ID: gyQJPd
+Tags: 
+
+Expression:
+Sum([Sales Price])*Sum([Sales Quantity])
+
+--------------------------------------------------------------------------------
+
+Title: Net Change in Cash
+Label: Net Change in Cash
+ID: mUcBvbN
+Tags: 
+
+Expression:
+Sum({<[Account Type]={'Consolidated Net Income'} >}[Balance Sheet Amt]) +
+
+Sum({<[Reporting Code]={4,5,6,7,8} >} [Balance Sheet Amt]) +
+
+Sum({<[Account Type]={'Current Maturities of Long Term Debt'} >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: EBITA
+Label: EBITA
+ID: naPmHx
+Tags: 
+
+Expression:
+Sum({<[Account Type]={'EBITA'}  >} [Balance Sheet Amt])
+
+--------------------------------------------------------------------------------
+
+Title: Total Sales
+Label: Total Sales
+ID: pPKxqR
+Tags: 
+
+Expression:
+Sum([Order Gross Amount])
+
+--------------------------------------------------------------------------------
+
+Title: Vertical Net Sales YTD
+Label: Vertical Net Sales YTD
+ID: swjJMy
+Tags: 
+
+Expression:
+Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount])/Sum({<[Fiscal Year]={$(vYTDYear)}, [Reporting Code]={1,2,3,4}>} [Amount])
+//)
+
+--------------------------------------------------------------------------------
+
+Title: Asset Turnover Ratio CM
+Label: Asset Turnover Ratio CM
+ID: yjwwQmE
+Tags: 
+
+Expression:
+Sum({<[Ratio Account Type]={'Asset Turnover Ratio'}, Date={"$(=max({$} Date))"} >} [Ratio Amount])
+
+--------------------------------------------------------------------------------
+
